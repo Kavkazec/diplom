@@ -416,7 +416,7 @@ body {
 }
 
 #page {
-    padding-top: 20px;
+
 }
 
 .dropzone {
@@ -500,14 +500,14 @@ a.nav-bar-links, a.nav-bar-links:link, a.nav-bar-links:hover, a.nav-bar-links:ac
 }
 
 .farfetch-link > i {
-    color: #e9c6a7;
+    color: #ffffff;
 }
 
 .active-farfetch-link {
-    color: #ffd7d7!important;
+    color: #ffffff!important;
 }
 .active-farfetch-link > i {
-    color: #f0515a
+    color: #ffffff;
 }
 
 .alert-cursor {

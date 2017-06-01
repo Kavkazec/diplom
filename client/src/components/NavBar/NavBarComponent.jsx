@@ -25,7 +25,7 @@ const NavBarComponent = ({
         activeClassName="active-farfetch-link"
       >
         <i className="fa fa-fw fa-bar-chart-o" />
-        <strong className="farfetch-subnav-main-font">{route.text}</strong>
+        <strong className="diplom-subnav-main-font">{route.text}</strong>
       </Link>
     </li>));
 
@@ -41,7 +41,7 @@ const NavBarComponent = ({
         activeClassName="active-farfetch-link"
       >
         <i className={route.icon} />
-        <strong className="farfetch-subnav-main-font">{route.text}</strong>
+        <strong className="diplom-subnav-main-font">{route.text}</strong>
       </Link>
     </li>));
 
@@ -69,21 +69,21 @@ const NavBarComponent = ({
               activeClassName="active-farfetch-link"
             >
               <i className="fa fa-fw fa-dashboard" />
-              <strong className="farfetch-main-font">Dashboard</strong>
+              <strong className="diplom-main-font">Главная</strong>
             </Link>
           </li>
           <NavItem onClick={changeChartState}>
-            <i className="fa fa-fw fa-bar-chart-o" style={{ color: '#e9c6a7' }} />
-            <span className="farfetch-main-font">
-              <strong>Charts</strong>
+            <i className="fa fa-fw fa-file-image-o" style={{ color: '#ffffff' }} />
+            <span className="diplom-main-font">
+              <strong>Галерея</strong>
             </span>
           </NavItem>
           {isChartOpen ? navRoutes : null}
 
           <NavItem onClick={changeToolsState}>
-            <i className="fa fa-fw fa-briefcase" style={{ color: '#e9c6a7' }} />
-            <span className="farfetch-main-font">
-              <strong>AdWords Tools</strong>
+            <i className="fa fa-fw fa-users" style={{ color: '#ffffff' }} />
+            <span className="diplom-main-font">
+              <strong>Фотографы</strong>
             </span>
           </NavItem>
             {isToolsOpen ? navAdwordsTools : null}

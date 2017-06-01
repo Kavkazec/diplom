@@ -4,6 +4,7 @@ import com.korkuts.config.AppConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
@@ -47,7 +48,7 @@ import java.util.List;
 @Configuration
 @ComponentScan("com.korkuts")
 @EnableTransactionManagement
-@EnableAutoConfiguration
+@EnableAutoConfiguration(exclude = FlywayAutoConfiguration.class)
 @EnableScheduling
 @EnableWebSocket
 public class ApplicationConfiguration {
@@ -92,6 +93,7 @@ public class ApplicationConfiguration {
         return dataSource;
     }
 
+    @Bean
     public NamedParameterJdbcTemplate namedParameterJdbcTemplate() {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(defaultDataSource());
         jdbcTemplate.setFetchSize(2000);

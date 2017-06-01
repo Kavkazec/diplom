@@ -1,0 +1,49 @@
+.diplom-raise-button > div > button > div {
+    height: 24px !important;
+}
+
+.diplom-raise-button > div {
+    height: 40px !important;
+}
+
+.diplom-raise-button > div > button > div > div > span {
+    vertical-align: super !important;
+}
+
+.diplom-raise-button > div > button > div > div > svg {
+    vertical-align: inherit !important;
+}
+
+.navbar-inverse {
+    background-color: rgb(0, 188, 212) !important;
+    border-color: rgb(0, 188, 212) !important;
+}
+
+.navbar-fixed-side.navbar-inverse .navbar-collapse, .navbar-fixed-side.navbar-inverse .navbar-nav>li>a, .navbar-fixed-side.navbar-inverse .navbar-form, .navbar-fixed-side.navbar-inverse .navbar-nav .dropdown-menu {
+    border-color: rgb(0, 188, 212) !important;
+}
+
+.diplom-main-font {
+    font-size: 14px;
+    text-align: center;
+    padding-left: 10px;
+    font-family: Polaris-Bold, sans-serif;
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+}
+
+.diplom-subnav-main-font {
+    font-size: 13px;
+    text-align: center;
+    padding-left: 10px;
+    font-family: Polaris-Bold, sans-serif;
+    font-weight: 900;
+    margin: 0;
+    color: #ffffff;
+}
+
+.page-header {
+    padding: 0px !important;
+    margin: 0px !important;
+}
