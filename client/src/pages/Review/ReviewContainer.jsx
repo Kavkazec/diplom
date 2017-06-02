@@ -1,20 +1,30 @@
 import React, { PropTypes } from 'react';
-import ReviewComponent from './ReviewComponent';
+import { connect } from 'react-redux';
 import Layout from '../../components/Layout';
-
-const style = {
-    minHeight: '800px',
-};
+import { loadPhotographers, setPhotographerId } from './redux/Review.actions';
+import PhotographerPreview from '../../components/PhotographerPreview';
 
 class ReviewContainer extends React.Component {
+    componentWillMount() {
+        const { dispatch } = this.props;
+        dispatch(loadPhotographers());
+    }
+
+
     render() {
         return (<Layout title="Обзор">
-                <div style={style}>
-                    <ReviewComponent />
+                <div>
+                    <PhotographerPreview
+                        setId={setPhotographerId}
+                    />
                 </div>
             </Layout>
         );
     }
 }
 
-export default ReviewContainer;
+const mapStateToProps = state => ({
+    dispatch: state.dispatch,
+});
+
+export default connect(mapStateToProps)(ReviewContainer);

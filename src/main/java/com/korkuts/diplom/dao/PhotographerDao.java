@@ -7,4 +7,6 @@ import java.util.List;
 public interface PhotographerDao {
 
     List<Photographer> getAll();
+
+    Photographer getOne(Long id);
 }

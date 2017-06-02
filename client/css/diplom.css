@@ -47,3 +47,23 @@
     padding: 0px !important;
     margin: 0px !important;
 }
+
+.preview-window {
+    height: 300px;
+    padding: 10px;
+    margin: 10px 0px 10px 0px;
+}
+
+.preview-window-field {
+    height: 30px;
+}
+
+.img-responsive {
+    width: 250px;
+    height: 280px;
+}
+
+.img-responsive-big {
+    width: 300px;
+    height: 480px;
+}

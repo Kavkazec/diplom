@@ -51,7 +51,7 @@ const NavBarComponent = ({
         <Navbar.Brand>
           <Link to={root}>
             <img
-              src="/assets/farfetch_logo_1.png"
+              src="/assets/farfetch_logo.png"
               className="logo-style"
               role="presentation"
             />

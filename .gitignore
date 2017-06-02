@@ -1,0 +1,6 @@
+target/
+logs/
+.idea/
+node_modules/
+*.iml
+src/main/resources/static

@@ -7,6 +7,38 @@ public class Photographer {
     private Integer age;
     private String description;
     private String imageLink;
+    private byte[] imageAsByte;
+    private String imageName;
+
+    public Photographer() {
+
+    }
+
+    public Photographer(Photographer photographer) {
+        this.id = photographer.getId();
+        this.firstName = photographer.getFirstName();
+        this.surname = photographer.getSurname();
+        this.age = photographer.getAge();
+        this.description = photographer.getDescription();
+        this.imageLink = photographer.getImageLink();
+        this.imageName = photographer.getImageName();
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    public byte[] getImageAsByte() {
+        return imageAsByte;
+    }
+
+    public void setImageAsByte(byte[] imageAsByte) {
+        this.imageAsByte = imageAsByte;
+    }
 
     public String getImageLink() {
         return imageLink;

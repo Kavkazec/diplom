@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface PhotographerService {
     List<Photographer> getAll();
+
+    Photographer getSingle(Long id);
 }
