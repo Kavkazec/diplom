@@ -7,12 +7,10 @@ import { Col } from 'react-bootstrap';
 class PhotographerPreviewContainer extends React.Component {
     render() {
         const { review } = this.props.review;
-        const { setId } = this.props;
         return (<Col mdOffset={2} md={8} style={{ marginTop: '20px' }}>
                 <MuiThemeProvider>
                     <PhotographerPreviewComponent
                         photographers={review.data}
-                        setId={setId}
                     />
                 </MuiThemeProvider>
                 </Col>
@@ -21,8 +19,7 @@ class PhotographerPreviewContainer extends React.Component {
 }
 
 PhotographerPreviewContainer.propsTypes = {
-    photographers: PropTypes.array,
-    setId: PropTypes.func
+    photographers: PropTypes.array
 };
 
 const mapStateToProps = state => ({

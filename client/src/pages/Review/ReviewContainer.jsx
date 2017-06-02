@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Layout from '../../components/Layout';
-import { loadPhotographers, setPhotographerId } from './redux/Review.actions';
+import { loadPhotographers } from './redux/Review.actions';
 import PhotographerPreview from '../../components/PhotographerPreview';
 
 class ReviewContainer extends React.Component {
@@ -14,9 +14,7 @@ class ReviewContainer extends React.Component {
     render() {
         return (<Layout title="Обзор">
                 <div>
-                    <PhotographerPreview
-                        setId={setPhotographerId}
-                    />
+                    <PhotographerPreview />
                 </div>
             </Layout>
         );

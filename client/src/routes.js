@@ -3,19 +3,13 @@ export const index = 'index.html';
 export const sub1 = '/sub1';
 export const sub2 = '/sub2';
 export const photographer = '/photographer';
-export const personalPage = '/personal-page';
-export const rating = '/rating';
+export const personalPage = '/photographer/:id';
 
 export const adwordsTools = [
   {
     url: photographer,
     text: 'Обзор',
     icon: 'fa fa-list',
-  },
-  {
-    url: rating,
-    text: 'Рейтинг',
-    icon: 'fa fa-list-ol',
   }
 ];
 

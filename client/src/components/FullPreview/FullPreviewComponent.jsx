@@ -1,11 +1,14 @@
 import React, { PropTypes } from 'react';
 import { Col } from 'react-bootstrap';
+import { connect } from 'react-redux';
 import _ from 'lodash';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import CategoryContainer from '../Category/CategoryContainer';
-import Paper from 'material-ui/Paper';
+import ImageContainer from '../Image/ImageContainer';
+import InfoContainer from '../Info/InfoContainer';
+import {loadImagesByCategory} from '../../pages/PersonalPage/redux/PersonalPage.actions';
 injectTapEventPlugin();
 
 class FullPreviewComponent extends React.Component {
@@ -18,8 +21,34 @@ class FullPreviewComponent extends React.Component {
             value: 'a',
             isSelectedAll: true,
             categories: [],
-            selectedCategories: []
+            selectedCategories: [],
+            needReload: false
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const {categories} = this.props;
+        if (categories.length !== nextProps.categories.length) {
+            const selectedCategories = _.map(nextProps.categories, (category) => category.id);
+            this.setState({
+                categories: nextProps.categories,
+                selectedCategories,
+                needReload: false
+            })
+        } else {
+            this.setState({
+                needReload: false
+            })
+        }
+    }
+
+
+    componentWillUpdate(nextProps, nextState) {
+        const { dispatch } = this.props;
+        if(nextState.needReload === true){
+            dispatch(loadImagesByCategory(nextProps.photographer.id,
+                _.map(nextState.selectedCategories, (cat) => _.find(nextState.categories, (category) => category.id === cat).name)));
+        }
     }
 
     changeSingleSelect(id) {
@@ -48,7 +77,8 @@ class FullPreviewComponent extends React.Component {
 
         this.setState({
             isSelectedAll: isAll,
-            selectedCategories: selected
+            selectedCategories: selected,
+            needReload: true
         })
 
     }
@@ -61,15 +91,8 @@ class FullPreviewComponent extends React.Component {
         }
         this.setState({
             isSelectedAll: !isSelectedAll,
-            selectedCategories: selected
-        })
-    }
-
-    componentWillReceiveProps(nextProps){
-        const selectedCategories = _.map(nextProps.categories,(category) => category.id);
-        this.setState({
-            categories: nextProps.categories,
-            selectedCategories
+            selectedCategories: selected,
+            needReload: true
         })
     }
 
@@ -85,7 +108,7 @@ class FullPreviewComponent extends React.Component {
             isSelectedAll,
             selectedCategories
         } = this.state;
-        const { photographer } = this.props;
+        const { photographer,images } = this.props;
         return (
             <MuiThemeProvider>
                 <Tabs
@@ -94,40 +117,9 @@ class FullPreviewComponent extends React.Component {
                 >
                     <Tab label="О фотографе" value="a">
                         <Col mdOffset={1} md={8} style={{ marginTop: '20px' }}>
-
-                            <div>
-                                <Col md={4}>
-                                    <Paper zDepth={1}>
-                                    <img src={`data:image/jpg;base64, ${photographer.imageAsByte}`} className="img-responsive-big" alt="Cinque Terre" />
-                                    </Paper>
-                                </Col>
-                                <Col mdOffset={1} md={7} style={{ paddingTop: '90px', paddingBottom: '50px' }}>
-                                    <div className="preview-window-field">
-                    <span className="farfetch-font">
-                        Имя:
-                    </span>
-                                        {photographer.firstName}
-                                    </div>
-                                    <div className="preview-window-field">
-                       <span className="farfetch-font">
-                        Фамилия:
-                    </span>
-                                        {photographer.surname}
-                                    </div>
-                                    <div className="preview-window-field">
-                       <span className="farfetch-font">
-                        Возраст:
-                    </span>
-                                        {photographer.age}
-                                    </div>
-                                    <div className="preview-window-field">
-                       <span className="farfetch-font">
-                        Дополнительная информация:
-                    </span>
-                                        {photographer.description}
-                                    </div>
-                                </Col>
-                            </div>
+                            <InfoContainer
+                                photographer={photographer}
+                            />
                         </Col>
                     </Tab>
                     <Tab label="Работы" value="b">
@@ -141,7 +133,9 @@ class FullPreviewComponent extends React.Component {
                             />
                         </Col>
                         <Col md={8} style={{ marginTop: '50px', float: 'right !important' }}>
-                            Polyana
+                            <ImageContainer
+                                images={images}
+                            />
                         </Col>
                     </Tab>
                 </Tabs>
@@ -152,7 +146,12 @@ class FullPreviewComponent extends React.Component {
 
 FullPreviewComponent.propsTypes = {
     photographer: PropTypes.object,
-    categories: PropTypes.array
+    categories: PropTypes.array,
+    images: PropTypes.object
 };
 
-export default FullPreviewComponent;
+const mapStateToProps = state => ({
+    dispatch: state.dispatch
+});
+
+export default connect(mapStateToProps)(FullPreviewComponent);

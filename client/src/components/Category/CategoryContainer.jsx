@@ -2,10 +2,6 @@ import React, { PropTypes } from 'react';
 import Chip from 'material-ui/Chip';
 import _ from 'lodash';
 
-const handleTouchTap = () => {
-    alert('You clicked the Chip.');
-};
-
 class CategoryContainer extends React.Component {
     render() {
         const {
@@ -18,15 +14,16 @@ class CategoryContainer extends React.Component {
 
         let colorForAll = 'rgb(224, 224, 224)';
         if(isSelectedAll === true) {
-            colorForAll = 'rgb(112, 186, 246)';
+            colorForAll = '#02b0fe';
         }
         const chips = categories.map((category) => {
           let color = 'rgb(224, 224, 224)';
           if(_.includes(selectedCategories, category.id)){
-              color = 'rgb(112, 186, 246)';
+              color = '#02b0fe';
           }
           return  (
               <Chip
+                  key={category.id}
                   onTouchTap={() => changeSingleSelect(category.id)}
                   style={{ backgroundColor: color }}
               >
@@ -38,10 +35,11 @@ class CategoryContainer extends React.Component {
                 flexWrap: 'wrap'
             }}>
                 <Chip
+                    key="0"
                     onTouchTap={changeSelectAllState}
                     style={{
                         backgroundColor: colorForAll,
-                        marginRight: '5px'
+                        marginBottom: '5px'
                     }}
                 >
                     all

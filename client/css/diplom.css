@@ -67,3 +67,13 @@
     width: 300px;
     height: 480px;
 }
+
+.diplom-category-font {
+    font-size: 20px;
+    text-align: center;
+    padding-left: 10px;
+    font-family: Polaris-Bold, sans-serif;
+    font-weight: 700;
+    margin: 0;
+    color: #000000;
+}

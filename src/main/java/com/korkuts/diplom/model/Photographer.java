@@ -14,7 +14,7 @@ public class Photographer {
 
     }
 
-    public Photographer(Photographer photographer) {
+    public Photographer(Photographer photographer, byte[] array) {
         this.id = photographer.getId();
         this.firstName = photographer.getFirstName();
         this.surname = photographer.getSurname();
@@ -22,6 +22,7 @@ public class Photographer {
         this.description = photographer.getDescription();
         this.imageLink = photographer.getImageLink();
         this.imageName = photographer.getImageName();
+        this.imageAsByte = array;
     }
 
     public String getImageName() {

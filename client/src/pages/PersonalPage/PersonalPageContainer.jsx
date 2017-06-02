@@ -1,15 +1,18 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import _ from  'lodash';
 import Layout from '../../components/Layout';
-import { loadPhotographer, loadCategories } from './redux/PersonalPage.actions';
+import {
+    loadPhotographer
+} from './redux/PersonalPage.actions';
 import FullPreviewContainer from '../../components/FullPreview/FullPreviewContainer';
 
 class PersonalPageContainer extends React.Component {
 
     componentWillMount() {
-        const { dispatch } = this.props;
-        dispatch(loadPhotographer(1));
-        dispatch(loadCategories(1));
+        const { dispatch,routing } = this.props;
+        const id = Number(_.last(routing.pathname.replace(new RegExp('/', 'g'),'').split('photographer')));
+        dispatch(loadPhotographer(id));
     }
 
     render() {
@@ -23,7 +26,8 @@ class PersonalPageContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    dispatch: state.dispatch
+    dispatch: state.dispatch,
+    routing: state.routing.locationBeforeTransitions
 });
 
 export default connect(mapStateToProps)(PersonalPageContainer);
