@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Layout from '../../components/Layout';
-import { loadPhotographer } from './redux/PersonalPage.actions';
+import { loadPhotographer, loadCategories } from './redux/PersonalPage.actions';
 import FullPreviewContainer from '../../components/FullPreview/FullPreviewContainer';
 
 class PersonalPageContainer extends React.Component {
@@ -9,6 +9,7 @@ class PersonalPageContainer extends React.Component {
     componentWillMount() {
         const { dispatch } = this.props;
         dispatch(loadPhotographer(1));
+        dispatch(loadCategories(1));
     }
 
     render() {

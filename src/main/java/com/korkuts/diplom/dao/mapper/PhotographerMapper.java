@@ -1,4 +1,4 @@
-package com.korkuts.diplom.dao;
+package com.korkuts.diplom.dao.mapper;
 
 import com.korkuts.diplom.model.Photographer;
 import org.springframework.jdbc.core.RowMapper;

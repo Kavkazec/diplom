@@ -1,7 +1,7 @@
 package com.korkuts.diplom.dao.impl;
 
 import com.korkuts.diplom.dao.PhotographerDao;
-import com.korkuts.diplom.dao.PhotographerMapper;
+import com.korkuts.diplom.dao.mapper.PhotographerMapper;
 import com.korkuts.diplom.model.Photographer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;

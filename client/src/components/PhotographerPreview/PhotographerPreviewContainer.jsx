@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import PhotographerPreviewComponent from './PhotographerPreviewComponent';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Col } from 'react-bootstrap';
 
 class PhotographerPreviewContainer extends React.Component {
@@ -8,10 +9,12 @@ class PhotographerPreviewContainer extends React.Component {
         const { review } = this.props.review;
         const { setId } = this.props;
         return (<Col mdOffset={2} md={8} style={{ marginTop: '20px' }}>
-                <PhotographerPreviewComponent
-                    photographers={review.data}
-                    setId={setId}
-                />
+                <MuiThemeProvider>
+                    <PhotographerPreviewComponent
+                        photographers={review.data}
+                        setId={setId}
+                    />
+                </MuiThemeProvider>
                 </Col>
         );
     }

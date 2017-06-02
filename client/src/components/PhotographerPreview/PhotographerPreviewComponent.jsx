@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import { Col } from 'react-bootstrap';
 import RaisedButton from 'material-ui/RaisedButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { connect } from 'react-redux';
+import Paper from 'material-ui/Paper';
 
 class PhotographerPreviewComponent extends React.Component {
 
@@ -11,6 +11,7 @@ class PhotographerPreviewComponent extends React.Component {
         const preview = photographers.map((photographer) => {
             return (
                 <div className="preview-window">
+                    <Paper style={{ width: 'inherit', height: 'inherit' }} zDepth={1}>
                     <Col md={4}>
                         <img src={`data:image/jpg;base64, ${photographer.imageAsByte}`} className="img-responsive" alt="Cinque Terre" />
                     </Col>
@@ -34,17 +35,16 @@ class PhotographerPreviewComponent extends React.Component {
                             {photographer.age}
                         </div>
                         <div className="preview-window-field pull-right" style={{ paddingTop: '60px'}}>
-                            <MuiThemeProvider>
                                 <RaisedButton
                                     label="Подробнее..."
                                     labelPosition="before"
                                     href="http://localhost:8080/personal-page"
                                     onClick={() => dispatch(setId(photographer.id))}
                                 />
-                            </MuiThemeProvider>
                         </div>
 
                     </Col>
+                    </Paper>
                 </div>
             )
         });

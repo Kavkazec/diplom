@@ -22,6 +22,7 @@ class FullPreviewContainer extends React.Component {
         return (<div style={{ margin: '0 10px 0 10px'}}>
                 <FullPreviewComponent
                     photographer={person.data}
+                    categories={person.categories}
                 />
             </div>
         );
