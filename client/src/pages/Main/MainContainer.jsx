@@ -8,7 +8,7 @@ const style = {
 
 class MainContainer extends React.Component {
   render() {
-    return (<Layout title="Dashboard">
+    return (<Layout title="Главная">
           <div style={style}>
             <MainComponent />
           </div>

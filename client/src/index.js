@@ -15,6 +15,7 @@ import notificationMiddleware from './components/Notifications/redux/notificatio
 import PageNotFound from './pages/PageNotFound';
 import Review from './pages/Review';
 import PersonalPage from './pages/PersonalPage';
+import Gallery from './pages/Gallery';
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
@@ -36,6 +37,7 @@ ReactDOM.render(
         <Route path={routes.index} component={Main} />
         <Route path={routes.photographer} component={Review} />
         <Route path={routes.personalPage} component={PersonalPage} />
+        <Route path={routes.gallery} component={Gallery} />
         <Route path="*" component={PageNotFound} />
       </Route>
     </Router>

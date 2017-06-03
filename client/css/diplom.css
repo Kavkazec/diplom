@@ -77,3 +77,21 @@
     margin: 0;
     color: #000000;
 }
+
+.diplom-span {
+    font-size: 17px;
+    text-align: center;
+    padding-left: 10px;
+    font-family: Polaris-Bold, sans-serif;
+    margin: 0;
+    color: #000000;
+}
+
+.diplom-filter {
+    margin-top: 30px;
+}
+
+.diplom-filter > div {
+    margin-left: 20%;
+}
+

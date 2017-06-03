@@ -17,6 +17,7 @@ public class PhotographerMapper implements RowMapper<Photographer> {
         photographer.setAge(resultSet.getInt("age"));
         photographer.setDescription(resultSet.getString("description"));
         photographer.setImageLink(resultSet.getString("image_link"));
+        photographer.setFullName(resultSet.getString("full_name"));
         return photographer;
     }
 }

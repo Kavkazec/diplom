@@ -24,6 +24,16 @@ public class PhotographerDaoImpl implements PhotographerDao {
     }
 
     @Override
+    public List<Photographer> getAllByIds(String ids) {
+        return namedParameterJdbcTemplate
+                .getJdbcOperations()
+                .query("        SELECT * " +
+                                "   FROM photographer " +
+                                "WHERE id IN (" + ids + ")",
+                        new PhotographerMapper());
+    }
+
+    @Override
     public Photographer getOne(Long id) {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
         parameterSource.addValue("id", id);

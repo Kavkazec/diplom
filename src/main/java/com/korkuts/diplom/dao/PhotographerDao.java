@@ -8,5 +8,7 @@ public interface PhotographerDao {
 
     List<Photographer> getAll();
 
+    List<Photographer> getAllByIds(String ids);
+
     Photographer getOne(Long id);
 }

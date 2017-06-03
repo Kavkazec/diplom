@@ -25,6 +25,18 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
+    public List<Category> getAllByNamesAndPhotographerIds(String ids, String names) {
+        return namedParameterJdbcTemplate
+                .getJdbcOperations()
+                .query("        SELECT DISTINCT ca.*" +
+                                "   FROM category_image ca_img" +
+                                "   INNER JOIN category ca ON ca_img.category_id = ca.id" +
+                                "   INNER JOIN image img ON ca_img.image_id = img.id" +
+                                "   WHERE ca.name IN (" + names +") AND img.photographer_id IN (" + ids + ");",
+                        new CategoryMapper());
+    }
+
+    @Override
     public List<Category> getAllByPhotographerId(Long id) {
         MapSqlParameterSource params = new MapSqlParameterSource();
         params.addValue("photographer_id",id);
@@ -52,6 +64,18 @@ public class CategoryDaoImpl implements CategoryDao {
                                 "   INNER JOIN image img ON ca_img.image_id = img.id" +
                                 "   WHERE ca.name IN (" + names +") AND img.photographer_id=:id;",
                         params,
+                        new CategoryMapper());
+    }
+
+    @Override
+    public List<Category> getAllByPhotographerIds(String ids) {
+        return namedParameterJdbcTemplate
+                .getJdbcOperations()
+                .query("        SELECT DISTINCT ca.*" +
+                                "   FROM category_image ca_img" +
+                                "   INNER JOIN category ca ON ca_img.category_id = ca.id" +
+                                "   INNER JOIN image img ON ca_img.image_id = img.id" +
+                                "   WHERE img.photographer_id IN (" + ids+ ")",
                         new CategoryMapper());
     }
 }

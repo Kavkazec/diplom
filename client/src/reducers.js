@@ -5,6 +5,7 @@ import notificationReducer from './components/Notifications/redux/Notifications.
 import navBarReducer from './components/NavBar/redux/NavBar.reducer';
 import reviewReducer from './pages/Review/redux/Review.reducer';
 import personReducer from './pages/PersonalPage/redux/PersonalPage.reducer';
+import galleryReducer from './pages/Gallery/redux/Gallery.reducer';
 
 const rootReducer = combineReducers({
   routing: routerReducer,
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   navBar: navBarReducer,
   review: reviewReducer,
   person: personReducer,
+  gallery: galleryReducer,
 });
 
 export default rootReducer;

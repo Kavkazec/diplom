@@ -2,6 +2,7 @@ package com.korkuts.diplom.model;
 
 public class Photographer {
     private Long id;
+    private String fullName;
     private String firstName;
     private String surname;
     private Integer age;
@@ -23,6 +24,7 @@ public class Photographer {
         this.imageLink = photographer.getImageLink();
         this.imageName = photographer.getImageName();
         this.imageAsByte = array;
+        this.firstName = photographer.getFullName();
     }
 
     public String getImageName() {
@@ -87,5 +89,13 @@ public class Photographer {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }

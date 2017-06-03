@@ -1,7 +1,6 @@
 export const root = '/';
 export const index = 'index.html';
-export const sub1 = '/sub1';
-export const sub2 = '/sub2';
+export const gallery = '/gallery';
 export const photographer = '/photographer';
 export const personalPage = '/photographer/:id';
 
@@ -15,11 +14,7 @@ export const adwordsTools = [
 
 export const routes = [
   {
-    url: sub1,
-    text: 'sub1',
-  },
-  {
-    url: sub2,
-    text: 'sub2',
+    url: gallery,
+    text: 'Работы',
   }
 ];

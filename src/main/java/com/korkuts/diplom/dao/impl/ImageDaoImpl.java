@@ -31,4 +31,16 @@ public class ImageDaoImpl implements ImageDao {
                         params,
                         new ImageMapper());
     }
+
+    @Override
+    public List<Image> getAllByCategoryAndPhotographerIds(String ids, String names) {
+        return namedParameterJdbcTemplate
+                .getJdbcOperations()
+                .query("        SELECT DISTINCT img.*" +
+                                "   FROM category_image ca_img" +
+                                "   INNER JOIN category ca ON ca_img.category_id = ca.id" +
+                                "   INNER JOIN image img ON ca_img.image_id = img.id" +
+                                "   WHERE ca.name IN (" + names + ") AND img.photographer_id IN ( " + ids +");",
+                        new ImageMapper());
+    }
 }
